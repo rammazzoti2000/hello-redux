@@ -1,13 +1,16 @@
 // import logo from './logo.svg';
 import React, { Component } from "react";
 import HelloWorld from "./HelloWorld";
+import ButtonGroup from "./ButtonGroup";
+import { store } from './store/index';
 
 class App extends Component {
-  state = {
-    tech: "React"
-  };
+  
   render() {
-    return <HelloWorld tech={this.state.tech} />;
+    return [
+      <HelloWorld key={1} tech={store.getState().tech} />,
+      <ButtonGroup key={2} technologies={["React", "Elm", "React-redux"]} />
+    ]
   }
 }
 
